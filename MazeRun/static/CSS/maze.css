@@ -1,4 +1,36 @@
+<<<<<<< HEAD
+=======
+head{
+  font-size: 60px;
+}
+h1 {
+  text-align: center;
+}
+h3 {
+  text-align: center;
+}
+p {
+  text-align: center;
+  font-family: FreeMono, monospace;
+  color: red;
+  font-size: 52px;
+  font-weight: 900;
+}
+
+>>>>>>> e70441630ea584163283bb2b6dedc5e41e28dc96
 body{
   color: white;
   background-color: black;
+}
+.oval {
+  height: 150px;
+  width: 300px;
+  background-color: #121110;
+  border-radius: 50%;
+  vertical-align: middle;
+}
+h2 {
+  color: red;
+  font-family: Andale Mono, monospace;
+  font-size: 25px;
 }
