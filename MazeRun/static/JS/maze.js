@@ -1,53 +1,40 @@
-function Player(width, height, color, x, y)
-{
-  this.width = width;
-  this.height =height;
-  this.speedX = 0;
-  this.speedY = 0;
-  this.x = x;
-  this.y = y;
 
-  this.Position = function{
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-  }
+//init object globally
+var objImage= null;
+function init(){
+	objImage=document.getElementById("image1");
+	objImage.style.position='relative';
+	objImage.style.left='0px';
+	objImage.style.top='0px';
 }
-
-
-function getKeyAndMove(e)
-{
-  var keyCode = e.which || e.keyCode;
-  switch(keyCode)
-  {
-    case  87 // w key moves up
-      moveUp();
-      break;
-    case 83 //s key moves down
-      moveDown()
-      break;
-    case 65 //a key moves left
-      moveLeft()
-      break;
-    case 68 //d key moves right
-      moveRight()
-      break;
-  }
+function getKeyAndMove(e){
+	var key_code=e.which||e.keyCode;
+	switch(key_code){
+		case 65: //left arrow key
+			moveLeft();
+			break;
+		case 87: //Up arrow key
+			moveUp();
+			break;
+		case 68: //right arrow key
+			moveRight();
+			break;
+		case 83: //down arrow key
+			moveDown();
+			break;
+		}
 }
-
-function moveUp(){
-  character.speedY -= 1;
-}
-
-function moveDown(){
-  character.speedY +=1;
-}
-
-function moveRight(){
-  character.speedX -=1;
-}
-
 
 function moveLeft(){
-  character.speedX +=1;
+  objImage.style.left=parseInt(objImage.style.left)-5 +'px';
 }
+function moveUp(){
+	objImage.style.top=parseInt(objImage.style.top)-5 +'px';
+}
+function moveRight(){
+	objImage.style.left=parseInt(objImage.style.left)+5 +'px';
+}
+function moveDown(){
+	objImage.style.top=parseInt(objImage.style.top)+5 +'px';
+}
+window.onload=init;
