@@ -9,6 +9,3 @@ class Character(ndb.Model):
 class LoginInfo(ndb.Model):
     uName = ndb.StringProperty(required=True)
     pWord = ndb.StringProperty(required=True)
-
-class Level(ndb.Model):
-    
