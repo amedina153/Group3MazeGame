@@ -1,0 +1,54 @@
+body {
+  background-color: black;
+}
+
+.characterselectoutline {
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  width: 100%;
+  margin: auto;
+}
+
+.circle {
+  height: 300px;
+  width: 100%;
+  background-color: white;
+  border-radius: 50%
+}
+.circle1 {
+  height: 300px;
+  width: 100%;
+  background-color: blue;
+  border-radius: 50%
+}
+.circle2 {
+  height: 300px;
+  width: 100%;
+  background-color: red;
+  border-radius: 50%
+}
+p {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+h1 {
+  text-align: center;
+  color: white;
+  font-family: FreeMono monospace;
+}
+.indiv {
+  display: block;
+  height:550px;
+  width: calc(100%/3);
+  padding: 100px;
+}
+.border {
+  border-width: 2px;
+  display: flex;
+  height: 700px;
+  width: 100%;
+  border-style: solid;
+  border-color: red;
+}
