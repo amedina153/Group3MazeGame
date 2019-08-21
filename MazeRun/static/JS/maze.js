@@ -7,6 +7,7 @@ function init(){
 	objImage.style.left='0px';
 	objImage.style.top='0px';
 }
+
 function getKeyAndMove(e){
 	var key_code=e.which||e.keyCode;
 	switch(key_code){
@@ -26,7 +27,7 @@ function getKeyAndMove(e){
 }
 
 function moveLeft(){
-  objImage.style.left=parseInt(objImage.style.left)-20 +'px';
+  objImage.style.left=parseInt(objImage.style.left)-5 +'px';
 }
 function moveUp(){
 	objImage.style.top=parseInt(objImage.style.top)-5 +'px';
@@ -38,3 +39,5 @@ function moveDown(){
 	objImage.style.top=parseInt(objImage.style.top)+5 +'px';
 }
 window.onload=init;
+
+window.onFrame = ()=>{console.log("hi")}
