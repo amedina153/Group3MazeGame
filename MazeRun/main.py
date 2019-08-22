@@ -19,9 +19,9 @@ class CharacterPageHandler(webapp2.RequestHandler):
         results_template = jinja_env.get_template('MazeHtml/MazeCharacterSelect.html')
         self.response.write(results_template.render())
 
-class LevelOnePageHandlerWhite(webapp2.RequestHandler):
+class LevelOnePageHandlerGreen(webapp2.RequestHandler):
     def get(self):
-        results_template= jinja_env.get_template('MazeHtml/LevelOneMazeW.html')
+        results_template= jinja_env.get_template('MazeHtml/LevelOneMazeG.html')
         self.response.write(results_template.render())
 
 class LevelOnePageHandlerBlue(webapp2.RequestHandler):
@@ -51,7 +51,7 @@ class PageHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     ('/', MainMazePageHandler),
     ('/characterselection', CharacterPageHandler),
-    ('/LeveloneW', LevelOnePageHandlerWhite),
+    ('/LeveloneG', LevelOnePageHandlerGreen),
     ('/LeveloneB', LevelOnePageHandlerBlue),
     ('/LeveloneR', LevelOnePageHandlerRed)
 ], debug=True)

@@ -1,11 +1,11 @@
 
 //init object globally
-var objImage= null;
+var character= null;
 function init(){
-	objImage=document.getElementById("image1");
-	objImage.style.position='relative';
-	objImage.style.left='0px';
-	objImage.style.top='0px';
+	character=document.getElementById("image1");
+	character.style.position='relative';
+	character.style.left='0px';
+	character.style.top='0px';
 }
 
 function getKeyAndMove(e){
@@ -27,16 +27,16 @@ function getKeyAndMove(e){
 }
 
 function moveLeft(){
-  objImage.style.left=parseInt(objImage.style.left)-5 +'px';
+  character.style.left=parseInt(character.style.left)-5 +'px';
 }
 function moveUp(){
-	objImage.style.top=parseInt(objImage.style.top)-5 +'px';
+	character.style.top=parseInt(character.style.top)-5 +'px';
 }
 function moveRight(){
-	objImage.style.left=parseInt(objImage.style.left)+5 +'px';
+	character.style.left=parseInt(character.style.left)+5 +'px';
 }
 function moveDown(){
-	objImage.style.top=parseInt(objImage.style.top)+5 +'px';
+	character.style.top=parseInt(character.style.top)+5 +'px';
 }
 window.onload=init;
 

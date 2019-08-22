@@ -1,8 +1,8 @@
 
-.circleW {
+.circleG {
   height: 30px;
   width: 30px;
-  background-color: white;
+  background-color: green;
   border-radius: 50%
 }
 .circleB {
