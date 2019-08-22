@@ -1,7 +1,19 @@
 
-.circle {
-  height: 300px;
-  width: 50%;
-  background-color: black;
+.circleW {
+  height: 30px;
+  width: 30px;
+  background-color: white;
+  border-radius: 50%
+}
+.circleB {
+  height: 30px;
+  width: 30px;
+  background-color: blue;
+  border-radius: 50%
+}
+.circleR {
+  height: 30px;
+  width: 30px;
+  background-color: red;
   border-radius: 50%
 }
