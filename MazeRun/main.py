@@ -36,9 +36,54 @@ class LevelOnePageHandlerRed(webapp2.RequestHandler):
 
 
 class LoginPageHandler(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_env.get_template('MazeHtml/MazeGame3.html')
-        self.response.write(results_template.render())
+#Credit goes to userapp via the Google CSSI Curiculum for providing most of the Login code
+      def get(self):
+        user = users.get_current_user()
+        if user:
+          email_address = user.nickname()
+          maze_user = LoginInfo.get_by_id(user.user_id())
+          signout_link_html = '<a href="%s">sign out</a>' % (
+              users.create_logout_url('/login'))
+
+          if maze_user:
+              #returning user
+            dict = {
+            "FirstName": maze_user.fName,
+            "LastName": maze_user.lName,
+            "EmailAddress": email_address,
+            "Logout": signout_link_html
+            }
+            results_template = jinja_env.get_template('MazeHtml/LoginReturningUser.html')
+            self.response.write(results_template.render(dict))
+
+          else:
+              #first-time user
+            self.response.write('''
+                Welcome to our site, %s!  Please sign up! <br>
+                <form method="post" action="/login">
+                <input type="text" name="fName">
+                <input type="text" name="lName">
+                <input type="submit">
+                </form><br> %s <br>
+                ''' % (email_address, signout_link_html))
+
+        else:
+            results_template = jinja_env.get_template('MazeHtml/Login.html')
+            self.response.write(results_template.render())
+
+      def post(self):
+        user = users.get_current_user()
+        if not user:
+
+          self.error(500)
+          return
+        maze_user = LoginInfo(
+            fName=self.request.get('fName'),
+            lName=self.request.get('lName'),
+            id=user.user_id())
+        maze_user.put()
+        self.response.write('Thanks for signing up, %s!' %
+            maze_user.fName)
 
 class PageHandler(webapp2.RequestHandler):
     def get(self):
@@ -54,4 +99,5 @@ app = webapp2.WSGIApplication([
     ('/LeveloneG', LevelOnePageHandlerGreen),
     ('/LeveloneB', LevelOnePageHandlerBlue),
     ('/LeveloneR', LevelOnePageHandlerRed)
+    ('/login', LoginPageHandler)
 ], debug=True)

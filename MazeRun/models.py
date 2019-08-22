@@ -7,5 +7,5 @@ class Character(ndb.Model):
     player_coin_count = ndb.IntegerProperty(required=True)
 
 class LoginInfo(ndb.Model):
-    uName = ndb.StringProperty(required=True)
-    pWord = ndb.StringProperty(required=True)
+    fName = ndb.StringProperty()
+    lName = ndb.StringProperty()
