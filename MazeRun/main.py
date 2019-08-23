@@ -35,6 +35,41 @@ class LevelOnePageHandlerRed(webapp2.RequestHandler):
         self.response.write(results_template.render())
 
 
+
+class LevelTwoPageHandlerGreen(webapp2.RequestHandler):
+    def get(self):
+        results_template= jinja_env.get_template('MazeHtml/LevelTwoMazeG.html')
+        self.response.write(results_template.render())
+
+class LevelTwoPageHandlerBlue(webapp2.RequestHandler):
+    def get(self):
+        results_template= jinja_env.get_template('MazeHtml/LevelTwoMazeB.html')
+        self.response.write(results_template.render())
+
+class LevelTwoPageHandlerRed(webapp2.RequestHandler):
+    def get(self):
+        results_template= jinja_env.get_template('MazeHtml/LevelTwoMazeR.html')
+        self.response.write(results_template.render())
+
+
+
+
+class LevelThreePageHandlerGreen(webapp2.RequestHandler):
+    def get(self):
+        results_template= jinja_env.get_template('MazeHtml/LevelThreemazeG.html')
+        self.response.write(results_template.render())
+
+class LevelThreePageHandlerBlue(webapp2.RequestHandler):
+    def get(self):
+        results_template= jinja_env.get_template('MazeHtml/LevelThreemazeB.html')
+        self.response.write(results_template.render())
+
+class LevelThreePageHandlerRed(webapp2.RequestHandler):
+    def get(self):
+        results_template= jinja_env.get_template('MazeHtml/LevelThreemazeR.html')
+        self.response.write(results_template.render())
+
+
 class LoginPageHandler(webapp2.RequestHandler):
     def get(self):
         results_template = jinja_env.get_template('MazeHtml/MazeGame3.html')
@@ -45,6 +80,10 @@ class PageHandler(webapp2.RequestHandler):
         results_template = jinja_env.get_template('MazeHtml/MazeGame3.html')
         self.response.write(results_template.render())
 
+class testPaper(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_env.get_template('MazeHtml/testpaper.html')
+        self.response.write(results_template.render())
 
 
 
@@ -53,5 +92,12 @@ app = webapp2.WSGIApplication([
     ('/characterselection', CharacterPageHandler),
     ('/LeveloneG', LevelOnePageHandlerGreen),
     ('/LeveloneB', LevelOnePageHandlerBlue),
-    ('/LeveloneR', LevelOnePageHandlerRed)
+    ('/LeveloneR', LevelOnePageHandlerRed),
+    ('/LeveltwoG', LevelTwoPageHandlerGreen),
+    ('/LeveltwoB', LevelTwoPageHandlerBlue),
+    ('/LeveltwoR', LevelTwoPageHandlerRed),
+    ('/LevelthreeG', LevelThreePageHandlerGreen),
+    ('/LevelthreeB', LevelThreePageHandlerBlue),
+    ('/LevelthreeR', LevelThreePageHandlerRed),
+    ('/testPaper', testPaper)
 ], debug=True)

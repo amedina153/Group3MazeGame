@@ -27,16 +27,16 @@ function getKeyAndMove(e){
 }
 
 function moveLeft(){
-  character.style.left=parseInt(character.style.left)-5 +'px';
+  character.style.left=parseInt(character.style.left)-10 +'px';
 }
 function moveUp(){
-	character.style.top=parseInt(character.style.top)-5 +'px';
+	character.style.top=parseInt(character.style.top)-10 +'px';
 }
 function moveRight(){
-	character.style.left=parseInt(character.style.left)+5 +'px';
+	character.style.left=parseInt(character.style.left)+10 +'px';
 }
 function moveDown(){
-	character.style.top=parseInt(character.style.top)+5 +'px';
+	character.style.top=parseInt(character.style.top)+10 +'px';
 }
 window.onload=init;
 
