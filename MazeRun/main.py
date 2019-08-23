@@ -2,6 +2,11 @@ import webapp2
 import jinja2
 import os
 
+from google.appengine.api import users
+from google.appengine.ext import ndb
+
+from models import LoginInfo
+
 
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -82,14 +87,13 @@ class LoginPageHandler(webapp2.RequestHandler):
             lName=self.request.get('lName'),
             id=user.user_id())
         maze_user.put()
-        self.response.write('Thanks for signing up, %s!' %
-            maze_user.fName)
+        self.response.write('Thanks for signing up, %s!') %(maze_user.fName)
 
-class PageHandler(webapp2.RequestHandler):
+class DataBaseTestHandler(webapp2.RequestHandler):
     def get(self):
-        results_template = jinja_env.get_template('MazeHtml/MazeGame3.html')
-        self.response.write(results_template.render())
-
+        start_template = jinja_env.get_template('MazeHtml/DataBaseTest.html')
+        self.response.write(start_template.render())
+        LoginInfo.query().fetch()
 
 
 
@@ -98,6 +102,7 @@ app = webapp2.WSGIApplication([
     ('/characterselection', CharacterPageHandler),
     ('/LeveloneG', LevelOnePageHandlerGreen),
     ('/LeveloneB', LevelOnePageHandlerBlue),
-    ('/LeveloneR', LevelOnePageHandlerRed)
-    ('/login', LoginPageHandler)
+    ('/LeveloneR', LevelOnePageHandlerRed),
+    ('/login', LoginPageHandler),
+    ('/dbTest', DataBaseTestHandler)
 ], debug=True)
