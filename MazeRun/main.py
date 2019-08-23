@@ -74,6 +74,11 @@ class LevelThreePageHandlerRed(webapp2.RequestHandler):
         results_template= jinja_env.get_template('MazeHtml/LevelThreemazeR.html')
         self.response.write(results_template.render())
 
+class testPaper(webapp2.RequestHandler):
+    def get(self):
+        results_template = jinja_env.get_template('MazeHtml/testpaper.html')
+        self.response.write(results_template.render())
+
 
 class LoginPageHandler(webapp2.RequestHandler):
 #Credit goes to userapp via the Google CSSI Curiculum for providing most of the Login code
@@ -96,12 +101,6 @@ class LoginPageHandler(webapp2.RequestHandler):
             results_template = jinja_env.get_template('MazeHtml/LoginReturningUser.html')
             self.response.write(results_template.render(dict))
 
-<<<<<<< HEAD
-class testPaper(webapp2.RequestHandler):
-    def get(self):
-        results_template = jinja_env.get_template('MazeHtml/testpaper.html')
-        self.response.write(results_template.render())
-=======
           else:
               #first-time user
             self.response.write('''
@@ -135,7 +134,6 @@ class DataBaseTestHandler(webapp2.RequestHandler):
         start_template = jinja_env.get_template('MazeHtml/DataBaseTest.html')
         self.response.write(start_template.render())
         LoginInfo.query().fetch()
->>>>>>> 8fcdde02b48f88b84592d352843a64bf11c14127
 
 
 
@@ -145,16 +143,14 @@ app = webapp2.WSGIApplication([
     ('/LeveloneG', LevelOnePageHandlerGreen),
     ('/LeveloneB', LevelOnePageHandlerBlue),
     ('/LeveloneR', LevelOnePageHandlerRed),
-<<<<<<< HEAD
     ('/LeveltwoG', LevelTwoPageHandlerGreen),
     ('/LeveltwoB', LevelTwoPageHandlerBlue),
     ('/LeveltwoR', LevelTwoPageHandlerRed),
     ('/LevelthreeG', LevelThreePageHandlerGreen),
     ('/LevelthreeB', LevelThreePageHandlerBlue),
     ('/LevelthreeR', LevelThreePageHandlerRed),
-    ('/testPaper', testPaper)
-=======
+    ('/testPaper', testPaper),
     ('/login', LoginPageHandler),
     ('/dbTest', DataBaseTestHandler)
->>>>>>> 8fcdde02b48f88b84592d352843a64bf11c14127
+
 ], debug=True)
