@@ -102,11 +102,7 @@ class LoginPageHandler(webapp2.RequestHandler):
             results_template = jinja_env.get_template('MazeHtml/LoginReturningUser.html')
             self.response.write(results_template.render(dict))
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 335bd26812b802f6db0bb6823b551499937ff750
           else:
               #first-time user
             self.response.write('''
@@ -145,11 +141,6 @@ class DataBaseTestHandler(webapp2.RequestHandler):
         start_template = jinja_env.get_template('MazeHtml/DataBaseTest.html')
         self.response.write(start_template.render())
         LoginInfo.query().fetch()
-<<<<<<< HEAD
-=======
-
->>>>>>> 335bd26812b802f6db0bb6823b551499937ff750
-
 
 
 app = webapp2.WSGIApplication([
@@ -167,8 +158,4 @@ app = webapp2.WSGIApplication([
     ('/testPaper', testPaper),
     ('/login', LoginPageHandler),
     ('/dbTest', DataBaseTestHandler)
-<<<<<<< HEAD
-
-=======
->>>>>>> 335bd26812b802f6db0bb6823b551499937ff750
 ], debug=True)

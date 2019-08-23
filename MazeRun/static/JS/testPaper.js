@@ -25,28 +25,28 @@ function Key(e){
 	switch(key_code){
 		case 65: //left arrow ke
       circleX-=10;
-      colCheck()
+      colCheck(circleX,circleY, circleradius, "left")
       //context.clearRect(0, 0, canvas.width, canvas.height);
       rendCircle();
       rendMaze();
 			break;
 		case 87: //Up arrow key
 			circleY-=10;
-      colCheck()
+      colCheck(circleX,circleY, circleradius, "up")
       //context.clearRect(0, 0, canvas.width, canvas.height);
       rendCircle();
       rendMaze();
 			break;
 		case 68: //right arrow key
 			circleX+= 10;
-      colCheck()
+      colCheck(circleX,circleY, circleradius, "")
       //context.clearRect(0, 0, canvas.width, canvas.height);
       rendCircle();
       rendMaze();
 			break;
 		case 83: //down arrow key
 			circleY +=10;
-      colCheck()
+      colCheck(circleX,circleY, circleradius, "")
       //context.clearRect(0, 0, canvas.width, canvas.height);
       rendCircle();
       rendMaze();
@@ -72,25 +72,18 @@ function rendMaze() {
 }
 
 
-function colCheck(circleX, circleY, rad, dir)
+function colCheck(cirX, cirY, rad, dir)
 {
     if(dir == "left")
       {
         rad = rad * -1
       }
-    if(dir == "right")
-      {
-        rad = rad
-      }
     if(dir == "up")
       {
         rad = rad * -1
       }
-    if(dir == "down")
-      {
-        rad == rad 
-      }
-    circleX+rad<20 && circleX+rad>720 && circleY+rad<20 && circleY+rad>720;
+      console.log(cirX+rad<20 && cirX+rad>720 && cirY+rad<20 && cirY+rad>720)
+    return cirX+rad<20 && cirX+rad>720 && cirY+rad<20 && cirY+rad>720;
 }
 
 
