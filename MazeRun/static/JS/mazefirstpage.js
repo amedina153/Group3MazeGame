@@ -1,5 +1,5 @@
 document.querySelector("#startbutton").addEventListener("click", () =>{
-  location.href = "/characterselection"
+  location.href = "/login"
 })
 
 
