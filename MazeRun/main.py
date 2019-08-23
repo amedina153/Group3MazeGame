@@ -7,7 +7,7 @@ from google.appengine.ext import ndb
 
 from models import LoginInfo
 
-
+user = ""
 jinja_env = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
     extensions = ['jinja2.ext.autoescape'],
@@ -98,9 +98,15 @@ class LoginPageHandler(webapp2.RequestHandler):
             "EmailAddress": email_address,
             "Logout": signout_link_html
             }
+            user = maze_user.fName
             results_template = jinja_env.get_template('MazeHtml/LoginReturningUser.html')
             self.response.write(results_template.render(dict))
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 335bd26812b802f6db0bb6823b551499937ff750
           else:
               #first-time user
             self.response.write('''
@@ -122,18 +128,27 @@ class LoginPageHandler(webapp2.RequestHandler):
 
           self.error(500)
           return
+        results_template = jinja_env.get_template('MazeHtml/RecentlyCreatedUser.html')
         maze_user = LoginInfo(
             fName=self.request.get('fName'),
             lName=self.request.get('lName'),
             id=user.user_id())
         maze_user.put()
-        self.response.write('Thanks for signing up, %s!') %(maze_user.fName)
+        dict = {
+        "FirstName": maze_user.fName,
+        "LastName": maze_user.lName
+        }
+        self.response.write(results_template.render(dict))
 
 class DataBaseTestHandler(webapp2.RequestHandler):
     def get(self):
         start_template = jinja_env.get_template('MazeHtml/DataBaseTest.html')
         self.response.write(start_template.render())
         LoginInfo.query().fetch()
+<<<<<<< HEAD
+=======
+
+>>>>>>> 335bd26812b802f6db0bb6823b551499937ff750
 
 
 
@@ -152,5 +167,8 @@ app = webapp2.WSGIApplication([
     ('/testPaper', testPaper),
     ('/login', LoginPageHandler),
     ('/dbTest', DataBaseTestHandler)
+<<<<<<< HEAD
 
+=======
+>>>>>>> 335bd26812b802f6db0bb6823b551499937ff750
 ], debug=True)
