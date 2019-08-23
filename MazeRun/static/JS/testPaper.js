@@ -33,7 +33,7 @@ function Key(e){
       rendMaze();
 			break;
 		case 87: //Up arrow key
-			if (! colCheck(circleX,circleY, circleradius, "left")) {
+			if (! colCheck(circleX,circleY, circleradius, "up")) {
 				circleY-=10
 			}
       //context.clearRect(0, 0, canvas.width, canvas.height);
@@ -41,7 +41,7 @@ function Key(e){
       rendMaze();
 			break;
 		case 68: //right arrow key
-			if (! colCheck(circleX,circleY, circleradius, "left")) {
+			if (! colCheck(circleX,circleY, circleradius, "")) {
 				circleX+=10
 			}
 
@@ -50,7 +50,7 @@ function Key(e){
       rendMaze();
 			break;
 		case 83: //down arrow key
-			if (! colCheck(circleX,circleY, circleradius, "left")) {
+			if (! colCheck(circleX,circleY, circleradius, "")) {
 				circleY+=10
 			}
 
