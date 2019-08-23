@@ -1,3 +1,3 @@
 document.querySelector("#ReturnBackButton").addEventListener("click", () =>{
-  location.href = "/"
+  location.href = "/characterselection"
 })
